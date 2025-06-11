@@ -1,0 +1,51 @@
+# ── i3 config (drop-in for your keybinds) ────────────────
+
+# Use Alt as your mod key
+set $mod Mod1
+
+# Font for menus/UI
+font pango:Andale\ Mono 10
+
+# Workspace definitions (names optional)
+set $ws1 1
+set $ws2 2
+set $ws3 3
+set $ws4 4
+
+# Move between workspaces
+bindsym Control+Left  workspace prev
+bindsym Control+Right workspace next
+
+# Focus windows with Alt+arrows
+bindsym $mod+Left  focus left
+bindsym $mod+Down  focus down
+bindsym $mod+Up    focus up
+bindsym $mod+Right focus right
+
+# Cycle through all windows in current workspace
+bindsym $mod+e focus global next
+
+# Rofi launcher (Spotlight-style)
+bindsym $mod+space exec rofi -show drun
+
+# App launchers
+bindsym $mod+p exec firefox
+bindsym $mod+i exec thunar
+bindsym $mod+o exec obsidian
+
+# Split orientation
+bindsym $mod+h split h
+bindsym $mod+v split v
+
+# Resize mode (optional)
+mode "resize" {
+    bindsym Left  resize shrink width  10 px or 10 ppt
+    bindsym Down  resize grow   height 10 px or 10 ppt
+    bindsym Up    resize shrink height 10 px or 10 ppt
+    bindsym Right resize grow   width  10 px or 10 ppt
+    bindsym Return mode "default"
+}
+bindsym $mod+r mode "resize"
+
+# Polybar autostart
+exec --no-startup-id polybar -c ~/.config/polybar/config mybar

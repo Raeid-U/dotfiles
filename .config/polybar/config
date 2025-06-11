@@ -1,0 +1,38 @@
+[bar/mybar]
+monitor = DP-1
+width   = 100%
+height  = 28
+offset-x = 0
+offset-y = 0
+modules-left  = i3 workspaces
+modules-center= window
+modules-right = pulseaudio battery network date
+
+[module/i3]
+type = internal/i3
+
+[module/workspaces]
+type = internal/i3
+format = <label-state>
+label-focused = %index%
+label-unfocused = %index%
+
+[module/window]
+type = internal/i3
+format = <label>
+label = %title%
+
+[module/pulseaudio]
+type = internal/pulseaudio
+format-volume =  %volume%%
+
+[module/network]
+type = internal/network
+interface = wlp5s0
+format-connected =  %essid% %percent%%
+format-disconnected = 睊
+
+[module/date]
+type = internal/date
+interval = 5
+date = %Y-%m-%d %H:%M:%S%
