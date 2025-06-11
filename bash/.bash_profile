@@ -6,3 +6,7 @@
 if [ -f "$HOME/dotfiles/.bashrc" ]; then
     source "$HOME/dotfiles/.bashrc"
 fi
+
+if [[ $XDG_SESSION_TYPE != "wayland" && $(tty) == /dev/tty1 ]]; then
+  exec Hyprland
+fi

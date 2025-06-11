@@ -1,0 +1,18 @@
+configuration {
+  show-icons: true;
+  theme: "drun";
+}
+
+window {
+  border-radius: 8px;
+  background: #282a36;
+  border: 2px solid #44475a;
+}
+
+element {
+  border-radius: 4px;
+  padding: 6px 8px;
+}
+element selected {
+  background: #6272a4;
+}
