@@ -1,2 +1,15 @@
-PROMPT_COMMAND='PS1_BRANCH=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)'
-PS1="\T \u: \w \${PS1_BRANCH:+(\$PS1_BRANCH)} \\$ "
+initExtra = ''
+    PROMPT_COMMAND='PS1_GIT=$(git branch --show-current 2>/dev/null)'
+
+    # Define PS1 with colors:
+    #  - [time] in gray (38;5;241)
+    #  - user@host in blue (38;5;75)
+    #  - cwd in cyan (38;5;106)
+    #  - Git branch in yellow (38;5;220)
+    #  - prompt symbol ($) in blue
+    PS1='[\[\e[38;5;241m\]\T\[\e[0m\]] '\
+'\[\e[38;5;75m\]\u:\[\e[0m\] '\
+'\[\e[38;5;106m\]\w\[\e[0m\] '\
+'\[\e[38;5;220m\]${PS1_GIT}\[\e[0m\] '\
+'\[\e[38;5;75m\]\\$\[\e[0m\] '
+  '';
