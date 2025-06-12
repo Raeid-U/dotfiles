@@ -1,0 +1,2 @@
+PROMPT_COMMAND='PS1_BRANCH=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)'
+PS1="\T \u: \w \${PS1_BRANCH:+(\$PS1_BRANCH)} \\$ "
